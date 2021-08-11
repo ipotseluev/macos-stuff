@@ -43,7 +43,8 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-" " * * * Vundle end * * * 
+" " * * * Vundle end * * *
+
 
 set tabstop=4
 set shiftwidth=4
@@ -72,9 +73,12 @@ set exrc
 
 " Hit F5 to trim trailing whitespaces
 :nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+" Hit to highlight the current line
+:nnoremap <C-L> :set cursorline! <CR>
 
 " To see code below during search
 set scrolloff=2
+
 
 " Hexmode
 " These shortcuts are quite annoying
