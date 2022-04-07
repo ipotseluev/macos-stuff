@@ -77,7 +77,7 @@ set exrc
 :nnoremap <C-L> :set cursorline! <CR>
 
 " To see code below during search
-set scrolloff=2
+set scrolloff=6
 
 
 " Hexmode
@@ -105,7 +105,7 @@ function ToggleHex()
     let b:oldbin=&bin
     " set new options
     setlocal binary " make sure it overrides any textwidth, etc.
-    silent :e " this will reload the file without trickeries 
+    silent :e " this will reload the file without trickeries
               "(DOS line endings will be shown entirely )
     let &ft="xxd"
     " set status
@@ -156,4 +156,8 @@ set statusline+=\ Ln\ %l\,\ Col\ %c     " line/column
 " Enable syntax highlighting in markdown codeblocks. Requires vim-markdown plugin (not in macos).
 " https://coderwall.com/p/ftqcla/markdown-with-fenced-code-blocks-in-vim,
 " https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
-let g:markdown_fenced_languages = ['python', 'C', 'bash', 'json=javascript', 'xml', 'javascript', 'js=javascript', 'ruby']
+let g:markdown_fenced_languages = ['py=python', 'C', 'bash', 'json=javascript', 'xml', 'javascript', 'js=javascript', 'ruby', 'sql']
+
+" python goto next/previous member with [[ and ]]
+autocmd FileType python nnoremap <buffer> [[ ?^class\\|^\s*def\\|^\s*async\s*def<CR>
+autocmd FileType python nnoremap <buffer> ]] /^class\\|^\s*def\\|^\s*async\s*def<CR>
