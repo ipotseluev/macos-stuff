@@ -40,3 +40,6 @@ DISABLE_MAGIC_FUNCTIONS=true
 # By default ls lists directories with the same color as normal files
 # This should go AFTER sourcing OMZ
 alias ls='ls --color=auto'
+
+# Allows autocomplete when cursor is placed on a non-whitespace character
+bindkey '^i' expand-or-complete-prefix
