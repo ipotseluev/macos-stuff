@@ -1,8 +1,14 @@
 # For git: do not use pager if output takes less than 1 screen (https://stackoverflow.com/questions/2183900/how-do-i-prevent-git-diff-from-using-a-pager)
 export LESS="-F -X -R $LESS"
 
-# MacOS: without this realpath and other utils are starting with g
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+case `uname` in
+  Darwin)
+    # without this realpath and other utils are starting with g
+    export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+    # gnu sed installed from brew
+    PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+  ;;
+esac
 
 # https://unix.stackexchange.com/questions/572439/make-ctrl-w-and-ctrl-alt-h-in-zsh-behave-the-same-as-in-bash
 # make ^W and
@@ -29,9 +35,6 @@ unsetopt inc_append_history
 unsetopt share_history
 
 setopt AUTO_CD
-hash -d dropbox=/Users/Shared/Dropbox
-hash -d today=~/Documents/today
-
 # This disables addition of backslashes on paste
 # https://github.com/ohmyzsh/ohmyzsh/issues/7632
 # This should go BEFORE sourcing zsh
