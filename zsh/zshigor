@@ -1,5 +1,10 @@
+# Without it, git used Ukrainian language for output
+export LANG=en_US.UTF-8
+
 # For git: do not use pager if output takes less than 1 screen (https://stackoverflow.com/questions/2183900/how-do-i-prevent-git-diff-from-using-a-pager)
 export LESS="-F -X -R $LESS"
+
+CASE_SENSITIVE="true"
 
 case `uname` in
   Darwin)
@@ -42,7 +47,31 @@ DISABLE_MAGIC_FUNCTIONS=true
 
 # By default ls lists directories with the same color as normal files
 # This should go AFTER sourcing OMZ
-alias ls='ls --color=auto'
+alias ls='eza'
+alias l='eza -l'
+alias la='eza -la'
+alias lt='eza --tree'
+alias ll='eza -l'
 
 # Allows autocomplete when cursor is placed on a non-whitespace character
 bindkey '^i' expand-or-complete-prefix
+
+# https://github.com/aluxian/fish-kube-prompt/issues/1
+alias stat=/usr/bin/stat
+alias test=/bin/test
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(docker web-search copybuffer dirhistory macos rust)
+
+alias xclip="pbcopy"
+
+# Reminders
+alias extract_tgz='echo tar -xf'
+alias compress_to_tgz='echo tar -czvf ARCHIVE SOURCE'
+
+
+# alias igorcopy='nc -w0 localhost 2224'
+hash -d downloads=~/Downloads
