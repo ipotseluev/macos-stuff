@@ -2,6 +2,10 @@
 
 # This fixes bad terminal behavior for remote Linux (previous default: tmux-256color)
 set -g default-terminal "xterm-256color"
+# And this is what nvim :checkhealth wanted me to do:
+set-option -g focus-events on
+# set-option -sa terminal-features ',xterm-256color:RGB'
+set-option -sa terminal-features ',alacritty:RGB'
 
 # Reload config file
 bind-key r source-file ~/.tmux.conf \; display ".tmux.conf reloaded!"
@@ -16,14 +20,11 @@ bind-key -n M-k select-pane -U
 bind-key -n M-j select-pane -D
 
 # Resize panes
-bind-key C-j resize-pane -D
-bind-key C-k resize-pane -U
-bind-key C-h resize-pane -L
-bind-key C-l resize-pane -R
-bind-key M-j resize-pane -D 5
-bind-key M-k resize-pane -U 5
-bind-key M-h resize-pane -L 5
-bind-key M-l resize-pane -R 5
+bind-key -n M-= select-layout even-horizontal
+bind-key -n M-J resize-pane -D
+bind-key -n M-H resize-pane -L
+bind-key -n M-K resize-pane -U
+bind-key -n M-L resize-pane -R
 
 # Switch to previous/next session
 bind-key -n M-[ switch-client -p
