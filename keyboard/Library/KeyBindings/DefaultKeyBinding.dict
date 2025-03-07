@@ -1,0 +1,13 @@
+{
+  "^~h" = "deleteWordBackward:";
+  "^u" = deleteToBeginningOfParagraph:;
+  "~b" = "moveWordBackward:";
+  "~d" = "deleteWordForward:";
+  "~f" = "moveWordForward:";
+  "~l" = (lowercaseWord:, moveForward:, moveForward:);
+  "~r" = centerSelectionInVisibleArea:;
+  "~c" = (capitalizeWord:, moveForward:, moveForward:);
+  "~u" = (uppercaseWord:, moveForward:, moveForward:);
+  "^u" = deleteToBeginningOfParagraph:;
+  "^w" = "deleteWordBackward:";
+}
