@@ -72,7 +72,7 @@ alias xclip="pbcopy"
 # Reminders
 alias extract_tgz='echo tar -xf'
 alias compress_to_tgz='echo tar -czvf ARCHIVE SOURCE'
-
+alias cal='rusti-cal --color --starting-day 1'
 
 # alias igorcopy='nc -w0 localhost 2224'
 hash -d downloads=~/Downloads
