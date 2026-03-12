@@ -45,15 +45,6 @@ setopt AUTO_CD
 # This should go BEFORE sourcing zsh
 DISABLE_MAGIC_FUNCTIONS=true
 
-# By default ls lists directories with the same color as normal files
-# This should go AFTER sourcing OMZ
-alias ls='eza'
-alias l='eza -l'
-alias la='eza -la'
-alias lt='eza --tree'
-alias ll='eza -l'
-alias tree='eza --tree'
-
 # Allows autocomplete when cursor is placed on a non-whitespace character
 bindkey '^i' expand-or-complete-prefix
 
@@ -73,6 +64,15 @@ alias xclip="pbcopy"
 alias extract_tgz='echo tar -xf'
 alias compress_to_tgz='echo tar -czvf ARCHIVE SOURCE'
 alias cal='rusti-cal --color --starting-day 1'
-
+alias cargo-update-all='cargo install-update -a'
 # alias igorcopy='nc -w0 localhost 2224'
 hash -d downloads=~/Downloads
+
+reminders() {
+    echo "jolt: helps laptop users understand what's draining their battery."
+    echo "dust: helps you manage your storage"
+    echo "Update everything installed with cargo install (in .vscode/bin):"
+    echo "  cargo install-update -a"
+    echo "bat: modern (a bit overcomplicated) replacement for cat"
+    echo "fd '^target$' -td -I -x cargo clean --manifest-path {}/../Cargo.toml: clean all rust projects starting from cur dir"
+}
