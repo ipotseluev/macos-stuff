@@ -21,10 +21,16 @@ bind-key -n M-j select-pane -D
 
 # Resize panes
 bind-key -n M-= select-layout even-horizontal
-bind-key -n M-J resize-pane -D
-bind-key -n M-H resize-pane -L
-bind-key -n M-K resize-pane -U
-bind-key -n M-L resize-pane -R
+# Big steps
+bind-key -n M-J resize-pane -D 4
+bind-key -n M-H resize-pane -L 4
+bind-key -n M-K resize-pane -U 4
+bind-key -n M-L resize-pane -R 4
+# Small steps (ctrl-alt-h already used for rm word before cursor, ctrl-alt-[HJKL] don't work)
+# bind-key -n M-C-J resize-pane -D
+# bind-key -n M-C-H resize-pane -L
+# bind-key -n M-C-K resize-pane -U
+# bind-key -n M-C-L resize-pane -R
 
 # Switch to previous/next session
 bind-key -n M-[ switch-client -p
@@ -48,10 +54,12 @@ bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle \; send -X begin-sele
 bind-key -T copy-mode-vi V send-keys -X select-line
 bind-key -T copy-mode-vi v send-keys -X begin-selection
 bind-key -T copy-mode-vi y send-keys -X copy-pipe 'pbcopy'
-bind-key -T copy-mode-vi '(' send-keys -X start-of-line
-bind-key -T copy-mode-vi ')' send-keys -X end-of-line
+bind-key -T copy-mode-vi '0' send-keys -X start-of-line
+bind-key -T copy-mode-vi '$' send-keys -X end-of-line
 bind-key -T copy-mode-vi '_' send-keys -X back-to-indentation
-bind-key -T copy-mode-vi '+' send-keys -X next-word
+bind-key -T copy-mode-vi 'w' send-keys -X next-word
+bind-key -T copy-mode-vi 'y' send-keys -X copy-selection
+bind-key -T copy-mode-vi Y send-keys -X select-line \; send-keys -X copy-pipe-and-cancel "pbcopy"
 
 # Create new named session (analogue to prefix+c for new pane)
 bind-key C-c command-prompt -p "New session name:" "new-session -s '%%'"
