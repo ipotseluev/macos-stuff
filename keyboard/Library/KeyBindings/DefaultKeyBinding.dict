@@ -1,13 +1,39 @@
 {
-  "^~h" = "deleteWordBackward:";
-  "^u" = deleteToBeginningOfParagraph:;
-  "~b" = "moveWordBackward:";
-  "~d" = "deleteWordForward:";
-  "~f" = "moveWordForward:";
-  "~l" = (lowercaseWord:, moveForward:, moveForward:);
-  "~r" = centerSelectionInVisibleArea:;
-  "~c" = (capitalizeWord:, moveForward:, moveForward:);
-  "~u" = (uppercaseWord:, moveForward:, moveForward:);
-  "^u" = deleteToBeginningOfParagraph:;
-  "^w" = "deleteWordBackward:";
+    /* Navigation */
+    "^a" = "moveToBeginningOfParagraph:";
+    "^e" = "moveToEndOfParagraph:";
+    "^n" = "moveDown:";
+    "^p" = "moveUp:";
+    "^ф" = "moveToBeginningOfParagraph:"; /* Cyrillic A */
+    "^у" = "moveToEndOfParagraph:";        /* Cyrillic E */
+    "^т" = "moveDown:";                    /* Cyrillic N */
+    "^з" = "moveUp:";                      /* Cyrillic P */
+
+    /* Deletion */
+    "^u" = "deleteToBeginningOfLine:";
+    "^г" = "deleteToBeginningOfLine:";
+    "^w" = "deleteWordBackward:";
+    "^ц" = "deleteWordBackward:";
+    "^~h" = "deleteWordBackward:";
+    "^~р" = "deleteWordBackward:";
+
+    /* Word movement */
+    "~b" = "moveWordBackward:";
+    "~и" = "moveWordBackward:";
+    "~f" = "moveWordForward:";
+    "~а" = "moveWordForward:";
+    "~d" = "deleteWordForward:";
+    "~в" = "deleteWordForward:";
+
+    /* Case transformations */
+    "~l" = ("lowercaseWord:", "moveForward:", "moveForward:");
+    "~д" = ("lowercaseWord:", "moveForward:", "moveForward:");
+    "~c" = ("capitalizeWord:", "moveForward:", "moveForward:");
+    "~с" = ("capitalizeWord:", "moveForward:", "moveForward:");
+    "~u" = ("uppercaseWord:", "moveForward:", "moveForward:");
+    "~г" = ("uppercaseWord:", "moveForward:", "moveForward:");
+
+    /* Utility */
+    "~r" = "centerSelectionInVisibleArea:";
+    "~к" = "centerSelectionInVisibleArea:";
 }

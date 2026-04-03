@@ -8,7 +8,6 @@ Run this command. It targets **any** device marked as "Built-in" by the system:
 
 ```bash
 hidutil property --matching '{"Built-In":true}' --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035},{"HIDKeyboardModifierMappingSrc":0x700000035,"HIDKeyboardModifierMappingDst":0x700000064}]}'
-
 ```
 
 ## Persistent Solution
@@ -19,14 +18,14 @@ We will create a small shell script and a Launch Agent to run it. This avoids th
 
 ```bash
 mkdir -p ~/.local/bin
-cat << 'EOF' > ~/.local/bin/fix_tilde.sh
+cat << 'EOF' > ~/.local/bin/tilde_fix.sh
 #!/bin/sh
 # Resets any global mapping first
 /usr/bin/hidutil property --set '{"UserKeyMapping":[]}'
 # Applies fix ONLY to built-in keyboard
 /usr/bin/hidutil property --matching '{"Built-In":true}' --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035},{"HIDKeyboardModifierMappingSrc":0x700000035,"HIDKeyboardModifierMappingDst":0x700000064}]}'
 EOF
-chmod +x ~/.local/bin/fix_tilde.sh
+chmod +x ~/.local/bin/tilde_fix.sh
 
 ```
 
@@ -43,7 +42,7 @@ cat << 'EOF' > ~/Library/LaunchAgents/com.user.tilde-fix.plist
     <key>ProgramArguments</key>
     <array>
         <string>/bin/sh</string>
-        <string>/Users/$(whoami)/.local/bin/fix_tilde.sh</string>
+        <string>/Users/$(whoami)/.local/bin/tilde_fix.sh</string>
     </array>
     <key>RunAtLoad</key>
     <true/>

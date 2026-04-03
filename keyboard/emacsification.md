@@ -8,3 +8,5 @@ Answers:
 <https://gist.github.com/trusktr/1e5e516df4e8032cbc3d>
 
 The config is in Library dir. Symlink it to ~/Library/KeyBindings/DefaultKeyBinding.dict.
+
+**Nota Bene** Do not use symlink in ~/Library/KeyBindings/DefaultKeyBinding.dict ! Use hard link (`ln` without -s)
